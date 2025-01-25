@@ -93,3 +93,18 @@ if __name__ == "__main__":
     if opt.mode == "train":
         print("Training...")
         train(config, generator, discriminator, kp_detector, he_estimator, opt.checkpoint, log_dir, dataset, opt.device_ids)
+        
+    else:
+        raise NotImplementedError("Unknown --mode " + opt.mode)
+    print("Training completed")
+    print("Check the logs in " + log_dir)
+    print("Run tensorboard --logdir " + log_dir)
+    print("Run python evaluate.py --config " + opt.config + " --checkpoint " + log_dir)
+    print("Run python demo.py --config " + opt.config + " --checkpoint " + log_dir)
+    print("Run python demo_video.py --config " + opt.config + " --checkpoint " + log_dir)
+    print("Run python demo_webcam.py --config " + opt.config + " --checkpoint " + log_dir)
+    print("Run python demo_webcam_video.py --config " + opt.config + " --checkpoint " + log_dir)
+    
+    print("Done")
+    sys.exit(0)
+    # End of main script
